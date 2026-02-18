@@ -1,14 +1,25 @@
 # Lateral Dynamics Modeling of General n-unit Combination Vehicles: Symbolic Model Validation
 
 ## Project Overview
-This repository contains a MATLAB script developed to verify the mathematical consistency between two different representations of a **Vehicle-Trailer System**. 
+By utilizing the proposed **Constraint Augmentation** method, the lateral dynamics model of a **general n-unit combination vehicle** can be derived in a highly intuitive and scalable manner. 
 
-The primary objective is to prove that a high-dimensional augmented model (utilizing constraint augmentation) and a simplified state-space model are identical through **MATLAB Symbolic Math Toolbox**.
+This repository provides a symbolic validation for the most common configuration: **a two-axle tractor + single-axle trailer system**. By comparing the *conventional representation* with the *proposed representation*, we demonstrate that both forms are mathematically identical and yield the same system response.
 
-## Mathematical Context
+The primary objective is to prove that the proposed model (utilizing constraint augmentation) and the conventional state-space model are identical through **MATLAB Symbolic Math Toolbox**.
+
 The validation compares:
 1.  **Augmented Formulation (proposed)**: A 5x5 system matrix representation ($M, D, F$) made by constraint augmentation
 2.  **Conventional Formulation**: A 4x4 reduced-order model ($A_0, B_0$)
+
+## Model Description & Assumptions
+
+### Key Assumptions
+To maintain a linearized model suitable for control design (e.g., LQR, MPC), the following assumptions are applied:
+* **Planar Motion:** Roll, pitch, and heave motions are neglected.
+* **Single-Track Model:** The system is assumed to be symmetric about the longitudinal axis.
+* **Constant Forward Speed:** The forward speed ($V_x$) is identical for all units and is assumed to be constant or slowly varying.
+* **Linear Tire Region:** Small steering angles and small vehicle/tire slip angles are assumed.
+* **Small Articulation Angles:** Small hitch angles are assumed, which is essential for the linearization of the kinematic constraints.
 
 ## Features
 - **Symbolic Verification**: Uses MATLAB's `Symbolic Math Toolbox` to handle complex algebraic manipulations without numerical rounding errors.
