@@ -21,6 +21,17 @@ To maintain a linearized model suitable for control design (e.g., LQR, MPC), the
 * **Linear Tire Region:** Small steering angles and small vehicle/tire slip angles are assumed.
 * **Small Articulation Angles:** Small hitch angles are assumed, which is essential for the linearization of the kinematic constraints.
 
+## System Parameters
+| Variable | Description |
+| :--- | :--- |
+| `m1, m2` | Mass of the vehicle(tractor) and trailer |
+| `Izz1, Izz2` | Yaw moment of inertia for both units |
+| `lf, lr` | Distance from Center of Gravity (CG) to the axles |
+| `Cy1, Cy2, Cy3` | Cornering stiffness of the vehicle (front/rear) and trailer axles |
+| `Vx` | Forward longitudinal velocity |
+| `P` | Geometric offset of the hitch point from the vehicle's rear axle |
+
+
 ## Features
 - **Symbolic Verification**: Uses MATLAB's `Symbolic Math Toolbox` to handle complex algebraic manipulations without numerical rounding errors.
 - **Automated Equivalence Check**: Utilizes `isAlways` to perform a rigorous logical check that the difference between the two models is zero.
@@ -35,17 +46,6 @@ To maintain a linearized model suitable for control design (e.g., LQR, MPC), the
 3.  Run the main script: `Symbolic_comparison_260219.m`.
 4.  Check the Command Window for the validation result:
     - `Success: both models are identical.` (Expected)
-
-## System Parameters
-| Variable | Description |
-| :--- | :--- |
-| `m1, m2` | Mass of the vehicle(tractor) and trailer |
-| `Izz1, Izz2` | Yaw moment of inertia for both units |
-| `lf, lr` | Distance from Center of Gravity (CG) to the axles |
-| `Cy1, Cy2, Cy3` | Cornering stiffness of the vehicle (front/rear) and trailer axles |
-| `Vx` | Forward longitudinal velocity |
-| `P` | Geometric offset of the hitch point from the vehicle's rear axle |
-
 
 ## Reference
 This code is part of an ongoing research project. If you wish to reference this work before the formal publication, please cite this GitHub repository directly.
